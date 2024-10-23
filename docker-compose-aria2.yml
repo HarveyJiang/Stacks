@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  Aria2:
+    container_name: aria2
+    image: p3terx/aria2-pro
+    environment:
+      - PUID=$UID
+      - PGID=$GID
+      - UMASK_SET=022
+      - RPC_SECRET=${key}
+      - RPC_PORT=6800
+      - LISTEN_PORT=6888
+      - DISK_CACHE=256M
+      - UPDATE_TRACKERS=true
+      - CUSTOM_TRACKER_URL=
+      - TZ=Asia/Shanghai
+      - SPECIAL_MODE=move
+    volumes:
+      - /opt/docker/aria2/conf:/config
+      - /opt/docker/aria2/downloads:/downloads
+    network_mode: bridge
+    ports:
+      - 6800:6800
+      - 6888:6888
+      - 6888:6888/udp
+    restart: unless-stopped
+    logging:
+      driver: none

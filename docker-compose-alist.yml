@@ -5,8 +5,9 @@ services:
         image: xhofe/alist
         restart: unless-stopped
         volumes:
-            - /opt/docker/alist/alist_conf:/opt/alist/data
+            - /opt/docker/alist/data:/opt/alist/data
             - /opt/docker/alist/storage:/opt/alist/storage
+            - /opt/docker/aria2/downloads:/opt/alist/storage/downloads
         ports:
             - 65244:5244
         environment:
