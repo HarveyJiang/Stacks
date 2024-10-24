@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  cloudreve:
+    container_name: cloudreve
+    image: cloudreve/cloudreve
+    restart: unless-stopped
+    ports:
+      - 65212:5212
+    volumes:
+      - /opt/docker/cloudreve/uploads:/cloudreve/uploads
+      - /opt/docker/cloudreve/conf.ini:/cloudreve/conf.ini
+      - /opt/docker/cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+      - /opt/docker/cloudreve/avatar:/cloudreve/avatar
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022

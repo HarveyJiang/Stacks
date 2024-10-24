@@ -20,9 +20,9 @@ services:
       - /opt/docker/aria2/downloads:/downloads
     network_mode: bridge
     ports:
-      - 6800:6800
-      - 6888:6888
-      - 6888:6888/udp
+      - 66800:6800
+      - 66888:6888
+      - 66888:6888/udp
     restart: unless-stopped
     logging:
       driver: none
