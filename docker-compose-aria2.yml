@@ -1,11 +1,9 @@
 version: '3.8'
 services:
-  Aria2:
+  aria2:
     container_name: aria2
     image: p3terx/aria2-pro
     environment:
-      - PUID=$$UID
-      - PGID=$$GID
       - UMASK_SET=022
       - RPC_SECRET=${key}
       - RPC_PORT=6800

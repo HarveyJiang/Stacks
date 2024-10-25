@@ -7,15 +7,15 @@
 version: '3.8'
 services:
     alist:
-        container_name: alist
+        container_name: alist-6244
         image: xhofe/alist
         restart: unless-stopped
         volumes:
             - /opt/docker/alist/data:/opt/alist/data
             - /opt/docker/alist/storage:/opt/alist/storage
             - /opt/docker/aria2/downloads:/opt/alist/storage/downloads
-        ports:
-            - 6244:5244
+        # ports:
+        #    - 6244:5244
         network_mode: host
         environment:
             - PUID=0
