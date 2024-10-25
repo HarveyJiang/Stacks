@@ -1,3 +1,9 @@
+#
+# 随机生成一个密码
+# docker exec -it alist ./alist admin random
+# 手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码
+# docker exec -it alist ./alist admin set NEW_PASSWORD
+#
 version: '3.8'
 services:
     alist:
@@ -9,9 +15,10 @@ services:
             - /opt/docker/alist/storage:/opt/alist/storage
             - /opt/docker/aria2/downloads:/opt/alist/storage/downloads
         ports:
-            - 65244:5244
+            - 6244:5244
+        network_mode: host
         environment:
-            - PUID=$UID
-            - PGID=$GID
+            - PUID=$$UID
+            - PGID=$$UID
             - UMASK=022
             - TZ=Asia/Shanghai

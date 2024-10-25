@@ -4,8 +4,8 @@ services:
     container_name: aria2
     image: p3terx/aria2-pro
     environment:
-      - PUID=$UID
-      - PGID=$GID
+      - PUID=$$UID
+      - PGID=$$GID
       - UMASK_SET=022
       - RPC_SECRET=${key}
       - RPC_PORT=6800
@@ -20,9 +20,9 @@ services:
       - /opt/docker/aria2/downloads:/downloads
     network_mode: bridge
     ports:
-      - 66800:6800
-      - 66888:6888
-      - 66888:6888/udp
+      - 6200:6800
+      - 6288:6888
+      - 6288:6888/udp
     restart: unless-stopped
     logging:
       driver: none
