@@ -1,5 +1,4 @@
 # xray 
-version: '3.8'
 services:
   xray:
     image: teddysun/xray:latest
@@ -9,5 +8,4 @@ services:
     ports:
       - 6443:6443
     volumes:
-      - /opt/docker/xray/config.json:/etc/xray/config.json
-    command: xray -config=/etc/xray/config.json
+      - /opt/docker/xray:/etc/xray
