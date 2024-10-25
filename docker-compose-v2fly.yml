@@ -10,5 +10,4 @@ services:
       - 6403:443
       - 6480:80
     volumes:
-      - /opt/docker/v2fly/config.json:/etc/v2fly/config.json
-    command: v2fly -config=/etc/v2fly/config.json
+      - /opt/docker/v2fly:/etc/v2fly

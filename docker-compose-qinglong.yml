@@ -1,0 +1,15 @@
+# xray 
+services:
+  qinglong:
+    image: whyour/qinglong
+    container_name: qinglong
+    networks:
+      - ext-network
+    volumes:
+      - /opt/docker/qinglong:/ql/data
+    ports:
+      - "${PORT}:5700"
+    restart: unless-stopped
+networks:
+  ext-network:
+    external: true
