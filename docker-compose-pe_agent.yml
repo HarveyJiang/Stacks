@@ -3,8 +3,6 @@ services:
   portainer_edge_agent:
     image: portainer/agent
     container_name: portainer_edge_agent
-    networks:
-      - ext-network
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
