@@ -18,7 +18,7 @@ services:
             - 6244:5244
         network_mode: host
         environment:
-            - PUID=$$UID
-            - PGID=$$UID
+            - PUID=0
+            - PGID=0
             - UMASK=022
             - TZ=Asia/Shanghai

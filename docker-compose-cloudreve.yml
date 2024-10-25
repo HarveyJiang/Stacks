@@ -12,6 +12,6 @@ services:
       - /opt/docker/cloudreve/cloudreve.db:/cloudreve/cloudreve.db
       - /opt/docker/cloudreve/avatar:/cloudreve/avatar
     environment:
-      - PUID=$$UID
-      - PGID=$$UID
+      - PUID=1000
+      - PGID=1000
       - UMASK=022
