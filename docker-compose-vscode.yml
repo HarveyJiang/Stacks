@@ -1,7 +1,7 @@
 # vscode 
 services:
   vscode:
-    image: mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+    image: mcr.microsoft.com/vscode/devcontainers/base:dev-bullseye
     container_name: vscode
     restart: unless-stopped
     ports:
