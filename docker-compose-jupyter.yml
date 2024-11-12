@@ -7,6 +7,6 @@ services:
     environment:
       - JUPYTER_TOKEN=0B253CDA-DC7A-4370-8B95-C0156475BAC8
     ports:
-      - 6088:6088
+      - 6088:8888
     volumes:
       - /opt/docker/jupyter/notebooks:/home/jovyan/work
