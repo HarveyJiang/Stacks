@@ -5,7 +5,10 @@ services:
     container_name: xray
     restart: unless-stopped
     network_mode: host
-    ports:
-      - 6443:6443
+    # use host not port mapping
+    # ports: 
+    #  - 6443:6443
     volumes:
       - /opt/docker/xray:/etc/xray
+    logging:
+      driver: none
