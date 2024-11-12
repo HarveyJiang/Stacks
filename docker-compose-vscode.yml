@@ -1,0 +1,10 @@
+# vscode 
+services:
+  vscode:
+    image: mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+    container_name: vscode
+    restart: unless-stopped
+    ports:
+      - 6300:3000
+    volumes:
+      - /opt/docker/vscode/workspace:/workspace
