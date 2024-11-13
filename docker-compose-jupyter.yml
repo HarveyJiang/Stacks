@@ -5,7 +5,9 @@ services:
     container_name: jupyter
     restart: unless-stopped
     environment:
-      - JUPYTER_TOKEN=0B253CDA-DC7A-4370-8B95-C0156475BAC8
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=''
+      - JUPYTER_PASSWORD=P@ssw0rd
     ports:
       - 6088:8888
     volumes:
