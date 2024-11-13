@@ -1,0 +1,20 @@
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - PASSWORD=P@ssw0rd #optional
+#      - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD=P@ssw0rd #optional
+#      - SUDO_PASSWORD_HASH= #optional
+#      - PROXY_DOMAIN=code-server.my.domain #optional
+      - DEFAULT_WORKSPACE=/config/workspace #optional
+    volumes:
+      - /opt/docker/code-server/workspace:/workspace
+      - /opt/docker/code-server/config:/config
+    ports:
+      - 38443:8443
+    restart: unless-stopped
