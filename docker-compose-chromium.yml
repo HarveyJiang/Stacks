@@ -11,7 +11,9 @@ services:
       - LANGUAGE=zh_CN:zh
       - LC_ALL=zh_CN.UTF-8
       - TZ=Asia/Shanghai
-      - CHROME_CLI=https://www.google.com/ #optional
+      - CHROME_CLI=https://www.linuxserver.io/
+      - DOCKER_MODS=linuxserver/mods:universal-package-install
+      - INSTALL_PACKAGES=fonts-noto-cjk
     build:
       context: .
       dockerfile: docker-compose-chromium-Dockerfile
