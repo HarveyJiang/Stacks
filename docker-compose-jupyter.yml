@@ -12,3 +12,4 @@ services:
       - 6088:8888
     volumes:
       - /opt/docker/jupyter/notebooks:/home/jovyan/work
+      - /opt/docker/jupyter/jupyter_notebook_config.py:/etc/jupyter/jupyter_notebook_config.py
