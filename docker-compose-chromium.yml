@@ -5,10 +5,16 @@ services:
     security_opt:
       - seccomp:unconfined #optional
     environment:
-      - PUID=1000
-      - PGID=1000
+      - LANG=zh_CN.UTF-8
+      - LANGUAGE=zh_CN:zh
+      - LC_ALL=zh_CN.UTF-8
       - TZ=Asia/Shanghai
-      - CHROME_CLI=https://www.linuxserver.io/ #optional
+      - CHROME_CLI=https://www.google.com/ #optional
+    build:
+      context: .
+      dockerfile: docker-compose-chromium-Dockerfile
+      args:
+        - INSTALL_CHINESE_FONTS=true
     volumes:
       - /opt/docker/chromium/config:/config
     ports:
