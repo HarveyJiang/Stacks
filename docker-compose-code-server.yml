@@ -11,7 +11,7 @@ services:
       - SUDO_PASSWORD=P@ssw0rd #optional
 #      - SUDO_PASSWORD_HASH= #optional
 #      - PROXY_DOMAIN=code-server.my.domain #optional
-      - DEFAULT_WORKSPACE=/config/workspace #optional
+      - DEFAULT_WORKSPACE=/workspace #optional
     volumes:
       - /opt/docker/code-server/workspace:/workspace
       - /opt/docker/code-server/config:/config
