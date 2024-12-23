@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  1panel:
+    container_name: 1panel
+    image: cloudreve/cloudreve
+    restart: unless-stopped
+    ports:
+      - 31212:10086
+    volumes:
+      - /opt/docker/cloudreve/uploads:/cloudreve/uploads
+      - /opt/docker/cloudreve/conf.ini:/cloudreve/conf.ini
+      - /opt/docker/cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+      - /opt/docker/cloudreve/avatar:/cloudreve/avatar
+      

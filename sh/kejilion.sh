@@ -16,7 +16,7 @@ gl_kjlan='\033[96m'
 country="default"
 gh_proxy=""
 permission_granted="false"
-ENABLE_STATS="true"
+ENABLE_STATS="false"
 
 # 定义一个函数来执行命令
 run_command() {
@@ -34,13 +34,10 @@ CheckFirstRun_true() {
 
 CheckFirstRun_true
 
-
- 
 cp -f ./kejilion.sh /usr/local/bin/k > /dev/null 2>&1
 
 
 send_stats() {
-
     if [ "$ENABLE_STATS" == "false" ]; then
         return
     fi
@@ -1168,8 +1165,6 @@ fi
 
 }
 
-
-
 check_docker_app() {
 
 if docker inspect "$docker_name" &>/dev/null; then
@@ -1179,7 +1174,6 @@ else
 fi
 
 }
-
 
 check_docker_app_ip() {
 echo "------------------------"
@@ -1192,8 +1186,6 @@ if $has_ipv6; then
 fi
 
 }
-
-
 
 docker_app() {
 send_stats "${docker_name}管理"
@@ -1259,14 +1251,11 @@ done
 
 }
 
-
-
 cluster_python3() {
     cd ~/cluster/
     curl -sS -O ${gh_proxy}https://raw.githubusercontent.com/kejilion/python-for-vps/main/cluster/$py_task
     python3 ~/cluster/$py_task
 }
-
 
 tmux_run() {
     # Check if the session already exists
@@ -1280,7 +1269,6 @@ tmux_run() {
       tmux attach-session -t $SESSION_NAME
     fi
 }
-
 
 tmux_run_d() {
 
@@ -1302,8 +1290,6 @@ tmux new -d -s "$base_name-$tmuxd_ID" "$tmuxd"
 
 
 }
-
-
 
 f2b_status() {
      docker restart fail2ban
@@ -1365,10 +1351,6 @@ f2b_sshd() {
 }
 
 
-
-
-
-
 server_reboot() {
 
     read -e -p "$(echo -e "${gl_huang}提示: ${gl_bai}现在重启服务器吗？(Y/N): ")" rboot
@@ -1404,7 +1386,6 @@ output_status() {
 
 }
 
-
 ldnmp_install_status_one() {
 
    if docker inspect "php" &>/dev/null; then
@@ -1417,9 +1398,6 @@ ldnmp_install_status_one() {
    fi
 
 }
-
-
-
 
 
 ldnmp_install_status() {
@@ -1467,16 +1445,6 @@ nginx_web_on() {
       echo "https://$yuming"
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 check_panel_app() {
@@ -6416,16 +6384,6 @@ linux_work() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 linux_Settings() {
 
     while true; do
@@ -7717,44 +7675,6 @@ EOF
               shell_bianse
               ;;
 
-          41)
-            clear
-            send_stats "留言板"
-            install sshpass
-            while true; do
-              remote_ip="66.42.61.110"
-              remote_user="liaotian123"
-              remote_file="/home/liaotian123/liaotian.txt"
-              password="kejilionYYDS"  # 替换为您的密码
-
-              clear
-              echo "科技lion留言板"
-              echo "------------------------"
-              # 显示已有的留言内容
-              sshpass -p "${password}" ssh -o StrictHostKeyChecking=no "${remote_user}@${remote_ip}" "cat '${remote_file}'"
-              echo ""
-              echo "------------------------"
-
-              # 判断是否要留言
-              read -e -p "是否要留言？(y/n): " leave_message
-
-              if [ "$leave_message" == "y" ] || [ "$leave_message" == "Y" ]; then
-                  # 输入新的留言内容
-                  read -e -p "输入你的昵称: " nicheng
-                  read -e -p "输入你的聊天内容: " neirong
-
-                  # 添加新留言到远程文件
-                  sshpass -p "${password}" ssh -o StrictHostKeyChecking=no "${remote_user}@${remote_ip}" "echo -e '${nicheng}: ${neirong}' >> '${remote_file}'"
-                  echo "已添加留言: "
-                  echo "${nicheng}: ${neirong}"
-              else
-                  echo "退出留言板"
-                  break
-              fi
-            break_end
-            done
-              ;;
-
           66)
 
               root_use
@@ -8206,7 +8126,6 @@ EOF
 
 
 
-
 linux_file() {
     root_use
     send_stats "文件管理器"
@@ -8411,9 +8330,6 @@ EOF
 
 
 
-
-
-
 kejilion_update() {
 
     send_stats "脚本更新"
@@ -8462,52 +8378,6 @@ kejilion_update() {
     fi
 
 
-}
-
-
-
-kejilion_Affiliates() {
-
-clear
-send_stats "广告专栏"
-echo "广告专栏"
-echo "------------------------"
-echo "将为用户提供更简单优雅的推广与购买体验！"
-echo ""
-echo -e "服务器优惠"
-echo "------------------------"
-echo -e "${gl_lan}RackNerd 10.18刀每年 美国 1核心 768M内存 15G硬盘 1T流量每月${gl_bai}"
-echo -e "${gl_bai}网址: https://my.racknerd.com/aff.php?aff=5501&pid=792${gl_bai}"
-echo "------------------------"
-echo -e "${gl_lv}Cloudcone 10刀每年 美国 1核心 768M内存 5G硬盘 3T流量每月${gl_bai}"
-echo -e "${gl_bai}网址: https://app.cloudcone.com.cn/vps/261/create?ref=8355&token=cloudcone.cc-24-vps-2${gl_bai}"
-echo "------------------------"
-echo -e "${gl_huang}搬瓦工 49刀每季 美国CN2GIA 日本软银 2核心 1G内存 20G硬盘 1T流量每月${gl_bai}"
-echo -e "${gl_bai}网址: https://bandwagonhost.com/aff.php?aff=69004&pid=87${gl_bai}"
-echo "------------------------"
-echo -e "${gl_lan}DMIT 28刀每季 美国CN2GIA 1核心 2G内存 20G硬盘 800G流量每月${gl_bai}"
-echo -e "${gl_bai}网址: https://www.dmit.io/aff.php?aff=4966&pid=100${gl_bai}"
-echo "------------------------"
-echo -e "${gl_zi}V.PS 6.9刀每月 东京软银 2核心 1G内存 20G硬盘 1T流量每月${gl_bai}"
-echo -e "${gl_bai}网址: https://vps.hosting/cart/tokyo-cloud-kvm-vps/?id=148&?affid=1355&?affid=1355${gl_bai}"
-echo "------------------------"
-echo -e "${gl_kjlan}VPS更多热门优惠${gl_bai}"
-echo -e "${gl_bai}网址: https://kejilion.pro/topvps/${gl_bai}"
-echo "------------------------"
-echo ""
-echo -e "域名优惠"
-echo "------------------------"
-echo -e "${gl_lan}GNAME 8.8刀首年COM域名 6.68刀首年CC域名${gl_bai}"
-echo -e "${gl_bai}网址: https://www.gname.com/register?tt=86836&ttcode=KEJILION86836&ttbj=sh${gl_bai}"
-echo "------------------------"
-echo ""
-echo -e "科技lion周边"
-echo "------------------------"
-echo -e "${gl_kjlan}B站:   ${gl_bai}https://b23.tv/2mqnQyh              ${gl_kjlan}油管:     ${gl_bai}https://www.youtube.com/@kejilion${gl_bai}"
-echo -e "${gl_kjlan}官网:  ${gl_bai}https://kejilion.pro/               ${gl_kjlan}导航:     ${gl_bai}https://dh.kejilion.pro/${gl_bai}"
-echo -e "${gl_kjlan}博客:  ${gl_bai}https://blog.kejilion.pro/          ${gl_kjlan}软件中心: ${gl_bai}https://app.kejilion.pro/${gl_bai}"
-echo "------------------------"
-echo ""
 }
 
 
@@ -8602,11 +8472,6 @@ echo "docker镜像管理      k docker img |k docker 镜像"
 echo "LDNMP缓存清理       k web cache"
 
 }
-
-
-
-
-
 
 
 if [ "$#" -eq 0 ]; then
@@ -8710,7 +8575,6 @@ fi
 ##
 ## add custom
 ##
-
 
 sshd_config_set() {
     # 备份 SSH 配置文件
