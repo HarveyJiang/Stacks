@@ -5,7 +5,7 @@ services:
     image: p3terx/aria2-pro
     environment:
       - UMASK_SET=022
-      - RPC_SECRET=${key}
+      - RPC_SECRET=${RPC_SECRET}
       - RPC_PORT=6800
       - LISTEN_PORT=6888
       - DISK_CACHE=256M
@@ -14,8 +14,8 @@ services:
       - TZ=Asia/Shanghai
       - SPECIAL_MODE=move
     volumes:
-      - /opt/docker/aria2/conf:/config
-      - /opt/docker/aria2/downloads:/downloads
+      - ${CONF_FOLDER}:/config
+      - ${DL_FOLDER}:/downloads
     network_mode: bridge
     ports:
       - 6200:6800
