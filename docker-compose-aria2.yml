@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   aria2:
     container_name: aria2
